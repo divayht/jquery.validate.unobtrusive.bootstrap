@@ -1066,7 +1066,10 @@ $.extend($.validator, {
 
 		// http://docs.jquery.com/Plugins/Validation/Methods/range
 		range: function( value, element, param ) {
-			return this.optional(element) || ( value >= param[0] && value <= param[1] );
+	                var valueNumber = parseInt(value, 10);
+	                var min = parseInt(param[0], 10);
+	                var max = parseInt(param[1], 10);
+	                return this.optional(element) || valueNumber >= min && valueNumber <= max;
 		},
 
 		// http://docs.jquery.com/Plugins/Validation/Methods/email
